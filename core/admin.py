@@ -1,7 +1,8 @@
 from django.contrib import admin
 
-from core.models import Categoria, Editora, Nome
+from core.models import Categoria, Editora, Autor, Livro
 
 admin.site.register(Categoria)
 admin.site.register(Editora)
-admin.site.register(Nome)
+admin.site.register(Autor)
+admin.site.register(Livro)
