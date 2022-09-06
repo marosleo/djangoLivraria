@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-ki!d$0vlj8&+p-3k5s3i)6+v%bg)s@gc#8=^dt69k!9t4_(1*z
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'drf-project-livraria.herokuapp.com'
+    'drf-project-livraria.herokuapp.com',
+    '127.0.0.1'
 ]
 
 
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "corsheaders",
     'rest_framework',
+    'rest_framework_simplejwt',
     'core',
 ]
 
@@ -135,3 +137,14 @@ CORS_ALLOW_ALL_ORIGINS = True
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+        # 'rest_framework.permissions.DjangoModelPermissions'
+        
+    ],
+}
