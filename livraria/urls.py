@@ -10,6 +10,11 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+from media.router import router as media_router
+
 router = DefaultRouter()
 router.register(r'categorias', CategoriaViewSet)
 router.register(r'editoras', EditoraViewSet)
@@ -24,5 +29,7 @@ urlpatterns = [
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     #API
     path('', include(router.urls)),
+    path("api/media/", include(media_router.urls)),
 ]
 
+urlpatterns += static(settings.MEDIA_ENDPOINT, document_root=settings.MEDIA_ROOT)
