@@ -1,8 +1,9 @@
 from django.contrib import admin
+
 # Admin
 from django.contrib.auth.admin import UserAdmin
 
-from core.models import Categoria, Editora, Autor, Livro, Usuario
+from core.models import Autor, Categoria, Editora, Livro, Usuario
 
 admin.site.register(Categoria)
 admin.site.register(Editora)

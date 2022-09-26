@@ -1,18 +1,24 @@
+#Urls
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
-from core.views import CategoriaViewSet, EditoraViewSet, AutorViewSet, LivroViewSet
-
-from rest_framework.routers import DefaultRouter
-
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
+#Specular
+from drf_spectacular.views import (
+    SpectacularAPIView,
+    SpectacularRedocView,
+    SpectacularSwaggerView,
 )
 
-from django.conf import settings
-from django.conf.urls.static import static
+#Rest Framework
+from rest_framework.routers import DefaultRouter
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
+#Views
+from core.views import AutorViewSet, CategoriaViewSet, EditoraViewSet, LivroViewSet
+
+#Media
 from media.router import router as media_router
 
 router = DefaultRouter()
@@ -28,8 +34,21 @@ urlpatterns = [
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     #API
-    path('', include(router.urls)),
+    path("api/", include(router.urls)),
+    #Media
     path("api/media/", include(media_router.urls)),
+    # OpenAPI 3
+    path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
+    path(
+        "api/swagger/",
+        SpectacularSwaggerView.as_view(url_name="schema"),
+        name="swagger-ui",
+    ),
+    path(
+        "api/redoc/",
+        SpectacularRedocView.as_view(url_name="schema"),
+        name="redoc",
+    )
 ]
 
 urlpatterns += static(settings.MEDIA_ENDPOINT, document_root=settings.MEDIA_ROOT)
