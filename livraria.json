@@ -1,0 +1,62 @@
+[
+{
+    "model": "core.autor",
+    "pk": 1,
+    "fields": {
+        "nome": "Arca",
+        "email": "naosei@gmail.com"
+    }
+},
+{
+    "model": "core.categoria",
+    "pk": 1,
+    "fields": {
+        "descricao": "Música"
+    }
+},
+{
+    "model": "core.editora",
+    "pk": 1,
+    "fields": {
+        "nome": "arca1000000",
+        "site": "https://arca1000000.com/"
+    }
+},
+{
+    "model": "core.livro",
+    "pk": 1,
+    "fields": {
+        "titulo": "A Melhor",
+        "isbn": "12344323",
+        "quantidade": 2,
+        "preco": "52.00",
+        "categoria": 1,
+        "editora": 1,
+        "capa": 1,
+        "autores": [
+            1
+        ]
+    }
+},
+{
+    "model": "core.usuario",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$cxPjFRVvHL7NgiiDMOp3R5$0FHHYGGzWW08CRBnhliichZE/x9zZujwsWYY/wrKSnM=",
+        "last_login": "2022-09-26T11:19:14Z",
+        "is_superuser": true,
+        "username": "duds",
+        "first_name": "edward",
+        "last_name": "mãos de tesoura",
+        "email": "eduarda6saibert@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2022-09-26T11:15:25Z",
+        "cpf": "10305155903",
+        "telefone": null,
+        "data_nascimento": "2004-08-12",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
