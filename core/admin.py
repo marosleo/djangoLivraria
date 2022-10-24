@@ -5,11 +5,6 @@ from django.contrib.auth.admin import UserAdmin
 
 from core.models import Autor, Categoria, Editora, Livro, Usuario
 
-admin.site.register(Categoria)
-admin.site.register(Editora)
-admin.site.register(Autor)
-admin.site.register(Livro)
-admin.site.register(Usuario)
 
 class UsuarioAdmin(UserAdmin):
     fieldsets = (
