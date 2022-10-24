@@ -1,0 +1,4 @@
+host: coffeau.mysql.pythonanywhere-services.com
+database: coffeau$livraria-django-duds
+username: coffeau
+password: C***S***
